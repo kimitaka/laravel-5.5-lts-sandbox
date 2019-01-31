@@ -11,8 +11,8 @@ build:
       version: 7.1
   tests:
     before:
-      - 'wget https://phar.phpunit.de/phpunit-6.5.6.phar -O phpunit.phar'
       - 'cp .env.example .env'
+      - 'wget https://phar.phpunit.de/phpunit-6.5.6.phar -O phpunit.phar'
     override:
       -
         command: 'php phpunit.phar --configuration phpunit.xml --coverage-text'
