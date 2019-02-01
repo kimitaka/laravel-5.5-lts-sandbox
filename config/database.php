@@ -52,7 +52,7 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
-            'unix_socket' => '/tmp/mysql.sock',
+            'unix_socket' => '/run/mysqld/mysqld.sock',
         ],
 
         'pgsql' => [
