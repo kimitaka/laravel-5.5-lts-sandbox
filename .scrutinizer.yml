@@ -1,0 +1,29 @@
+filter:
+  excluded_paths: [vendor/*, tests/*, src/config/*]
+
+checks:
+  php:
+    code_rating: true
+    duplication: true
+build:
+  environment:
+    php:
+      version: 7.1
+  tests:
+    before:
+      - 'cp .env.example .env'
+      - 'php artisan key:generate'
+      - 'wget https://phar.phpunit.de/phpunit-6.5.6.phar -O phpunit.phar'
+    override:
+      -
+        command: 'php phpunit.phar --configuration phpunit.xml --coverage-text --coverage-clover=clover.xml'
+        coverage:
+          file: 'clover.xml'
+          format: 'php-clover'
+
+tools:
+  external_code_coverage: false
+  php_mess_detector: true
+  php_cpd: true
+  php_pdepend:
+    excluded_dirs: [vendor, tests, src/config]
