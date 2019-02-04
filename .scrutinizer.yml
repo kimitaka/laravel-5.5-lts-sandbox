@@ -18,7 +18,7 @@ build:
       -
         command: 'php phpunit.phar --configuration phpunit.xml --coverage-text'
         coverage:
-          file: 'coverage.clover'
+          file: 'coverage.clover.xml'
           format: 'php-clover'
 
 tools:
